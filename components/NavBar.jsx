@@ -7,7 +7,7 @@ import { IoSettingsSharp } from "react-icons/io5";
 
 const NavBar = () => {
   return (
-    <nav className="px-14 w-full h-15">
+    <nav className="px-14 w-full h-15 relative z-2">
       <div className=" flex justify-between items-center border-b-2 w-full border-[#D1D1D1] py-4">
         {/**Logo Title */}
         <div className="flex items-center gap-3">

@@ -4,7 +4,7 @@ import Content from "../components/Content";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-[#F8F8F8] h-screen">
       <NavBar />
       <Content />
     </div>
