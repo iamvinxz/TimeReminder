@@ -7,33 +7,25 @@ import {
   NativeSelectOption,
 } from "@/components/ui/native-select";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
 const FormComponent = () => {
-  const { register, handleSubmit } = useForm();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm();
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  const [taskList, setTaskList] = useState([]);
-  const [isFinished, setIsFinished] = useState(false);
-
-  const submitForm = (data) => {
-    const newTask = {
-      title: data.title,
-      description: data.description,
-      deadline: data.deadline,
-      type: data.type,
-      habit: data.habit,
-      until: data.until,
-    };
-
-    fetch("http:localhost:3000/0", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTask),
-    });
-
-    setTaskList((prev) => [...prev, newTask]);
+  const submitForm = async (data) => {
+    try {
+      await fetch("http://localhost:3000/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -46,7 +38,7 @@ const FormComponent = () => {
           <Label className="text-[#8A8484]">Deadline</Label>
           <Input
             type="datetime-local"
-            {...register("deadline")}
+            {...register("deadline", { required: true })}
             className="text-[#8A8484]"
           />
         </div>
@@ -55,7 +47,7 @@ const FormComponent = () => {
           <Label className="text-[#8A8484]">Title</Label>
           <Input
             type="text"
-            {...register("title")}
+            {...register("title", { required: true })}
             className="text-[#8A8484]"
           />
         </div>
@@ -64,7 +56,7 @@ const FormComponent = () => {
           <Label className="text-[#8A8484]">Description</Label>
           <Textarea
             className="resize-none text-[#8A8484]"
-            {...register("description")}
+            {...register("description", { required: true })}
           />
         </div>
 
@@ -100,11 +92,7 @@ const FormComponent = () => {
                 className="flex gap-2 border border-[#EEEEEE] p-2"
                 key={index}
               >
-                <input
-                  type="checkbox"
-                  class="accent-[#54378F]"
-                  {...register("repeat")}
-                />
+                <input type="checkbox" className="accent-[#54378F]" />
                 <Label>{day}</Label>
               </div>
             ))}
@@ -115,15 +103,16 @@ const FormComponent = () => {
           <Label className="text-[#8A8484]">Until</Label>
           <Input
             type="date"
-            {...register("until")}
+            {...register("until", { required: true })}
             className="text-[#8A8484]"
           />
         </div>
         <Button
+          disabled={isSubmitting}
           type="submit"
           className="w-full text-md py-6 cursor-pointer bg-[#54378F] shadow-md hover:bg-[#815fc5]"
         >
-          Create Task
+          {isSubmitting ? "Creating Task" : "Create Task"}
         </Button>
       </form>
     </section>

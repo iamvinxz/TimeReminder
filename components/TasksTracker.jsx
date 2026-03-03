@@ -19,7 +19,7 @@ const TasksTracker = () => {
             </span>
           </div>
 
-          <div className="bg-white rounded-3xl w-60 px-7 py-5 drop-shadow-md relative left-25">
+          <div className="bg-white rounded-3xl w-60 px-7 py-5 drop-shadow-md relative left-15">
             <p className="font-semibold text-[#8A8484] text-[14px]">
               TASKS COMPLETED
             </p>
