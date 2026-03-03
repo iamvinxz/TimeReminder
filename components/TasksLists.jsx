@@ -9,51 +9,65 @@ import {
   FieldGroup,
 } from "@/components/ui/field";
 import { formatDate } from "@/lib/dateFormatter";
+import useFetch from "./useFetch";
 
 const TasksLists = () => {
-  const [isFinished, setIsFinished] = useState(false);
-  const [tasks, setTasks] = useState(null);
+  const { data, isPending } = useFetch("http://localhost:3000/tasks");
+  const [localTasks, setLocalTasks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/tasks")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setTasks(data);
-      });
-  }, []);
+    if (data) {
+      setLocalTasks(data.map((task) => ({ ...task, isComplete: false })));
+    }
+  }, [data]);
+
+  console.log(localTasks);
+
+  const handleCheck = (id) => {
+    setLocalTasks((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, isComplete: !t.isComplete } : t)),
+    );
+  };
 
   return (
     <div>
       <h1 className="font-bold text-[20px] text-[#303030] py-5">Todays Task</h1>
       <div className="mx-5 max-h-178 overflow-auto scrollbar-hide w-150">
-        {tasks &&
-          tasks.map((task, index) => (
-            <FieldGroup
-              className="flex flex-row border-gray-300 border-b py-5"
-              key={index}
-            >
-              <Field orientation="horizontal">
-                <Checkbox className="relative top-1.5 border border-[#8A8484] accent-[#54378F]" />
-                <FieldContent>
-                  <FieldLabel className="font-semibold text-lg text-[#303030]">
-                    {task.title}
-                  </FieldLabel>
-                  <FieldDescription>
-                    <p className="text-sm text-[#303030]">{task.description}</p>
-                  </FieldDescription>
-                </FieldContent>
-              </Field>
+        {isPending && <div>Loading...</div>}
+        {localTasks.map((task) => (
+          <FieldGroup
+            className="flex flex-row border-gray-300 border-b py-5"
+            key={task.id}
+          >
+            <Field orientation="horizontal">
+              <Checkbox
+                className="relative top-1.5 border border-[#8A8484] data-[state=checked]:bg-yellow-500 data-[state=checked]:text-yellow-50"
+                checked={task.isComplete}
+                id={task.id}
+                onCheckedChange={() => handleCheck(task.id)}
+              />
+              <FieldContent>
+                <FieldLabel
+                  className={`font-semibold text-lg text-[#303030] ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
+                >
+                  {task.title}
+                </FieldLabel>
+                <FieldDescription
+                  className={`text-sm text-[#303030] ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
+                >
+                  {task.description}
+                </FieldDescription>
+              </FieldContent>
+            </Field>
 
-              <div className="flex items-center gap-3 w-50 relative -top-5">
-                <TbCalendarDue color="#8A8484" />
-                <span className="text-sm text-[#8A8484]">
-                  {formatDate(task.deadline)}
-                </span>
-              </div>
-            </FieldGroup>
-          ))}
+            <div className="flex items-center gap-3 w-50 relative -top-5">
+              <TbCalendarDue color="#8A8484" />
+              <span className="text-sm text-[#8A8484]">
+                {formatDate(task.deadline)}
+              </span>
+            </div>
+          </FieldGroup>
+        ))}
       </div>
     </div>
   );

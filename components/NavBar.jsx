@@ -6,11 +6,7 @@ import { TbGraphFilled } from "react-icons/tb";
 import { IoSettingsSharp } from "react-icons/io5";
 
 const NavBar = () => {
-  const [toggle, setToggle] = useState(true);
-
-  const handleNavigationButton = () => {
-    setToggle(!toggle);
-  };
+  const handleNavigationButton = () => {};
 
   return (
     <nav className="px-14 w-full h-15 relative z-2">
@@ -33,9 +29,9 @@ const NavBar = () => {
               </button>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-              <FaCalendarDays size={21} className="text-[#8A8484]" />
+              <FaCalendarDays size={21} />
               <button
-                className="text-[16px] cursor-pointer text-[#8A8484]"
+                className="text-[16px] cursor-pointer "
                 onClick={handleNavigationButton}
               >
                 Calendar
