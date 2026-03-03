@@ -22,9 +22,9 @@ const NavBar = () => {
         </div>
 
         <div>
-          <div className="flex flex-row gap-9">
+          <div className="flex flex-row gap-9 items-center pr-17">
             <div className="flex items-center gap-2 cursor-pointer">
-              <TbGraphFilled size={27} />
+              <TbGraphFilled size={25} />
               <button
                 className="text-[16px] cursor-pointer"
                 onClick={handleNavigationButton}
@@ -33,7 +33,7 @@ const NavBar = () => {
               </button>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-              <FaCalendarDays size={23} className="text-[#8A8484]" />
+              <FaCalendarDays size={21} className="text-[#8A8484]" />
               <button
                 className="text-[16px] cursor-pointer text-[#8A8484]"
                 onClick={handleNavigationButton}
@@ -42,7 +42,7 @@ const NavBar = () => {
               </button>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-              <FaWalking size={23} />
+              <FaWalking size={21} />
               <button
                 className="text-[16px] cursor-pointer"
                 onClick={handleNavigationButton}
@@ -51,7 +51,7 @@ const NavBar = () => {
               </button>
             </div>
             <div className="flex items-center gap-2 cursor-pointer">
-              <FaAlignJustify size={20} />
+              <FaAlignJustify size={18} />
               <button
                 className="text-[16px] cursor-pointer"
                 onClick={handleNavigationButton}
@@ -62,9 +62,9 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-5">
           <IoSettingsSharp size={20} />
-          <div className="w-8.25 h-8.25 bg-[#D9D9D9] rounded-lg"></div>
+          <div className="w-10 h-10 bg-[#D9D9D9] rounded-lg"></div>
         </div>
       </div>
     </nav>

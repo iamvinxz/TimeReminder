@@ -29,7 +29,7 @@ const FormComponent = () => {
   };
 
   return (
-    <section className="w-120 ml-25">
+    <section className="w-120 mt-4">
       <form
         onSubmit={handleSubmit(submitForm)}
         className="space-y-5 bg-white p-6 rounded-xl w-full shadow-xl"
@@ -86,7 +86,7 @@ const FormComponent = () => {
 
         <div className="space-y-3">
           <Label className="text-[#8A8484]">Repeat Every</Label>
-          <div className="flex gap-2 p-2 overflow-x-scroll">
+          <div className="flex gap-2 p-2 overflow-x-scroll scrollbar-hide">
             {days.map((day, index) => (
               <div
                 className="flex gap-2 border border-[#EEEEEE] p-2"

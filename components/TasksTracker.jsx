@@ -2,7 +2,7 @@ import { BsCloudSunFill } from "react-icons/bs";
 const TasksTracker = () => {
   return (
     <div className="z-10">
-      <div className="flex flex-col ml-5">
+      <div className="flex flex-col items-center ml-5">
         <div className="flex gap-5 mt-8 pl-5">
           <BsCloudSunFill color="#54378F" size={40} />
           <p className="w-90 text-[#303030]">
@@ -33,21 +33,21 @@ const TasksTracker = () => {
 
         <div className="relative top-18">
           <div className="flex gap-4 my-5">
-            <div className="bg-[#FF598B] w-50 p-5 rounded-xl">
+            <div className="bg-[#FF598B] w-55 p-5 rounded-xl">
               <p className="text-[13px] font-semibold text-white">PAST DUES</p>
               <h1 className="text-[48px] font-bold text-white">0</h1>
             </div>
-            <div className="bg-[#54378F] w-50 p-5 rounded-xl">
+            <div className="bg-[#54378F] w-55 p-5 rounded-xl">
               <p className="text-[13px] font-semibold text-white">TODAY</p>
               <h1 className="text-[48px] font-bold text-white">0</h1>
             </div>
           </div>
           <div className="flex gap-4 my-5">
-            <div className="bg-[#FFBD59] w-50 p-5 rounded-xl">
+            <div className="bg-[#FFBD59] w-55 p-5 rounded-xl">
               <p className="text-[13px] font-semibold text-white">INCOMING</p>
               <h1 className="text-[48px] font-bold text-white">0</h1>
             </div>
-            <div className="bg-[#EEEEEE] w-50 p-5 rounded-xl"></div>
+            <div className="bg-[#EEEEEE] w-55 p-5 rounded-xl"></div>
           </div>
         </div>
       </div>

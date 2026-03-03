@@ -10,31 +10,22 @@
       "until": "2026-03-03"
     },
     {
-      "id": "e132",
-      "deadline": "2026-03-19T11:28",
-      "title": "Capstone",
-      "description": "Revision",
-      "type": "Assignment",
-      "habit": "Coding",
-      "until": "2026-03-03"
-    },
-    {
-      "id": "9875",
-      "deadline": "2026-03-03T11:41",
-      "title": "Test",
-      "description": "Test",
-      "type": "Assignment",
-      "habit": "Test",
-      "until": "2026-03-03"
-    },
-    {
-      "id": "a390",
-      "deadline": "2026-03-03T11:43",
-      "title": "Another One",
-      "description": "Hee hee",
+      "id": "d230",
+      "deadline": "2026-03-03T13:42",
+      "title": "The 5-Minute Purge",
+      "description": "Pick one drawer or desktop folder and delete/discard everything you don't need",
       "type": "Hobby",
-      "habit": "Test",
+      "habit": "For Fun",
       "until": "2026-03-03"
+    },
+    {
+      "id": "2f77",
+      "deadline": "2026-03-05T13:43",
+      "title": "New Playlist",
+      "description": "Create a 5-song playlist for a very specific mood, like \"Walking through a rainy neon city.\"",
+      "type": "Hobby",
+      "habit": "For Fun",
+      "until": "2026-03-05"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
