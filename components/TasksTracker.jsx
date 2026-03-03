@@ -1,5 +1,10 @@
 import { BsCloudSunFill } from "react-icons/bs";
+import { ArrayTask } from "./TasksLists";
+import { useContext } from "react";
 const TasksTracker = () => {
+  const array = useContext({ ArrayTask });
+
+  console.log(array);
   return (
     <div className="z-10">
       <div className="flex flex-col items-center ml-5">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { TbCalendarDue } from "react-icons/tb";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -48,12 +48,12 @@ const TasksLists = () => {
               />
               <FieldContent>
                 <FieldLabel
-                  className={`font-semibold text-lg text-[#303030] ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
+                  className={`font-semibold text-lg ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
                 >
                   {task.title}
                 </FieldLabel>
                 <FieldDescription
-                  className={`text-sm text-[#303030] ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
+                  className={`text-sm ${task.isComplete ? "line-through text-yellow-400" : "text-[#303030]"}`}
                 >
                   {task.description}
                 </FieldDescription>
@@ -61,8 +61,12 @@ const TasksLists = () => {
             </Field>
 
             <div className="flex items-center gap-3 w-50 relative -top-5">
-              <TbCalendarDue color="#8A8484" />
-              <span className="text-sm text-[#8A8484]">
+              <TbCalendarDue
+                className={`text-sm ${task.isComplete ? "text-gray-300" : "text-[#8A8484]"}`}
+              />
+              <span
+                className={`text-sm ${task.isComplete ? "text-gray-300" : "text-[#8A8484]"}`}
+              >
                 {formatDate(task.deadline)}
               </span>
             </div>
@@ -72,5 +76,5 @@ const TasksLists = () => {
     </div>
   );
 };
-
+export const ArrayTask = createContext(localStorage);
 export default TasksLists;

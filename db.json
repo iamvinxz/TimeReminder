@@ -26,6 +26,42 @@
       "type": "Hobby",
       "habit": "For Fun",
       "until": "2026-03-05"
+    },
+    {
+      "id": "67f6",
+      "deadline": "2026-03-03T16:53",
+      "title": "Doodle a Hybrid",
+      "description": "Draw an animal combined with a household object (a Toaster-Turtle?).",
+      "type": "Hobby",
+      "habit": "Coding",
+      "until": "2026-03-28"
+    },
+    {
+      "id": "ea0f",
+      "deadline": "2026-03-28T16:54",
+      "title": "Wiki-Rabbit Hole",
+      "description": "Go to Wikipedia, click \"Random Article,\" and read it until you find a link to a historical figure.",
+      "type": "Hobby",
+      "habit": "Anything",
+      "until": "2026-03-24"
+    },
+    {
+      "id": "1a9f",
+      "deadline": "2026-03-28T16:56",
+      "title": "The \"Six-Word Story\"",
+      "description": "Write a complete story using exactly six words (e.g., \"Found a map. Lost the way.\")",
+      "type": "",
+      "habit": "Random",
+      "until": "2026-03-28"
+    },
+    {
+      "id": "06e6",
+      "deadline": "2026-03-30T16:57",
+      "title": "Update Your Bio",
+      "description": "Refresh your LinkedIn, GitHub, or social media \"About Me\" section.",
+      "type": "",
+      "habit": "Work",
+      "until": "2026-03-27"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
