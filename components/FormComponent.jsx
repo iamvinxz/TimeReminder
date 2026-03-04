@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 const FormComponent = () => {
+  const now = new Date().toISOString().slice(0, 16);
   const {
     register,
     handleSubmit,
@@ -37,6 +38,7 @@ const FormComponent = () => {
         <div className="space-y-3">
           <Label className="text-[#8A8484]">Deadline</Label>
           <Input
+            min={now}
             type="datetime-local"
             {...register("deadline", { required: true })}
             className="text-[#8A8484]"
