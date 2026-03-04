@@ -12,8 +12,11 @@ import { formatDate } from "@/lib/dateFormatter";
 import { ArrayTasksContext } from "@/lib/useContext";
 
 const TasksLists = () => {
-  const { task } = useContext(ArrayTasksContext);
+  const { task, due } = useContext(ArrayTasksContext);
   const [statelocalTasks, setStateLocalTasks] = task;
+  const [pastDue] = due;
+
+  console.log(pastDue);
 
   const handleCheck = (id) => {
     setStateLocalTasks((prev) =>

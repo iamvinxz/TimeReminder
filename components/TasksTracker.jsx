@@ -1,5 +1,5 @@
 import { BsCloudSunFill } from "react-icons/bs";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ArrayTasksContext } from "@/lib/useContext";
 const TasksTracker = () => {
   const now = new Date();
@@ -10,10 +10,11 @@ const TasksTracker = () => {
   ).getTime();
   const todayEnd = todayStart + 24 * 60 * 60 * 1000;
 
-  const { task } = useContext(ArrayTasksContext);
+  const { task, due } = useContext(ArrayTasksContext);
   const [statelocalTasks, setStateLocalTasks] = task;
+  const [setPastDue] = due;
 
-  //filters the tasks that has a property of isComplete = true
+  //filter the tasks that has a property of isComplete = true
   const finishedTasks = statelocalTasks.filter(
     (finished) => finished.isComplete == true,
   );
@@ -57,7 +58,7 @@ const TasksTracker = () => {
 
         <div className="flex items-center gap-10 my-10">
           <div className="flex text-[5rem] w-50 relative left-15">
-            <h1 className="font-bold text-[#54378F] text-8xl transition duration-700 ease-in">
+            <h1 className="font-bold text-[#54378F] text-8xl">
               {Math.round(percentage)}
             </h1>
             <span className="text-[#54378F] text-[2rem] font-bold relative top-5">

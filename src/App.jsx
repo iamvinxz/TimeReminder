@@ -7,7 +7,7 @@ import useFetch from "../components/useFetch.jsx";
 const App = () => {
   const { data, isPending } = useFetch("http://localhost:3000/tasks");
   const [localTasks, setLocalTasks] = useState([]);
-  const [pastDue, setPastDue] = useState([]);
+  const [pastDue, setPastDue] = useState(["1", "2"]);
 
   useEffect(() => {
     if (data) {
